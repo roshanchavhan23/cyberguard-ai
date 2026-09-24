@@ -1,0 +1,58 @@
+import type { VideoItem } from '../types';
+
+export const videos: VideoItem[] = [
+  {
+    id: 'helpline-1930',
+    title: 'How to Use the National Cyber Helpline 1930',
+    source: 'Government of India',
+    description: 'Learn how to contact and use the 1930 cyber helpline for reporting cybercrime in real time.',
+    thumbnail: 'https://images.pexels.com/photos/5475750/pexels-photo-5475750.jpeg?auto=compress&cs=tinysrgb&w=800',
+    embedUrl: 'https://www.youtube.com/embed/0xYfJ0wXeH4',
+    category: 'Helpline',
+  },
+  {
+    id: 'cyberdost-guide',
+    title: 'CyberDost: Essential Cyber Safety Tips',
+    source: 'CyberDost (Official)',
+    description: 'Official CyberDost guidance on protecting yourself from online fraud and harassment.',
+    thumbnail: 'https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?auto=compress&cs=tinysrgb&w=800',
+    embedUrl: 'https://www.youtube.com/embed/Pa9o9Rvz1Y8',
+    category: 'Awareness',
+  },
+  {
+    id: 'social-media-security',
+    title: 'Social Media Security Best Practices',
+    source: 'Expert Panel',
+    description: 'How to secure your social media accounts and protect your personal information online.',
+    thumbnail: 'https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg?auto=compress&cs=tinysrgb&w=800',
+    embedUrl: 'https://www.youtube.com/embed/5Dz9z9z9z9z',
+    category: 'Social Media',
+  },
+  {
+    id: 'upi-fraud-awareness',
+    title: 'UPI & Digital Payment Fraud Awareness',
+    source: 'Ministry of Finance',
+    description: 'Understand how digital payment frauds work and how to safeguard your money.',
+    thumbnail: 'https://images.pexels.com/photos/4968391/pexels-photo-4968391.jpeg?auto=compress&cs=tinysrgb&w=800',
+    embedUrl: 'https://www.youtube.com/embed/4n3m3m3m3m3',
+    category: 'Financial',
+  },
+  {
+    id: 'report-cybercrime',
+    title: 'How to Report Cybercrime on cybercrime.gov.in',
+    source: 'National Cyber Crime',
+    description: 'Complete walkthrough of the online complaint filing process on the national portal.',
+    thumbnail: 'https://images.pexels.com/photos/1181271/pexels-photo-1181271.jpeg?auto=compress&cs=tinysrgb&w=800',
+    embedUrl: 'https://www.youtube.com/embed/2o2o2o2o2o2',
+    category: 'Reporting',
+  },
+  {
+    id: 'women-safety-online',
+    title: 'Online Safety for Women: A Complete Guide',
+    source: 'Women & Child Development',
+    description: 'Specific guidance on handling online harassment, stalking, and abuse targeted at women.',
+    thumbnail: 'https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg?auto=compress&cs=tinysrgb&w=800',
+    embedUrl: 'https://www.youtube.com/embed/6p6p6p6p6p6',
+    category: 'Awareness',
+  },
+];
