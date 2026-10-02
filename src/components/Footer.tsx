@@ -23,6 +23,7 @@ export default function Footer({ onNavigate }: FooterProps) {
     { id: 'harassment', label: t.nav.harassment },
     { id: 'guider', label: t.nav.guider },
     { id: 'helplines', label: t.nav.helplines },
+    { id: 'portals', label: t.nav.portals },
     { id: 'laws', label: t.nav.laws },
     { id: 'guidelines', label: t.nav.guidelines },
     { id: 'formguide', label: t.nav.formguide },

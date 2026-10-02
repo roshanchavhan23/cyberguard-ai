@@ -13,6 +13,7 @@ export const translations = {
       laws: 'Laws & Policies',
       harassment: 'Harassment Hub',
       helplines: 'Helplines',
+      portals: 'Portals',
     },
     helpline: {
       banner: 'National Cyber Helpline: 1930 (24x7 Assistance)',
@@ -163,6 +164,7 @@ export const translations = {
       laws: 'कानून और नीतियां',
       harassment: 'उत्पीड़न हब',
       helplines: 'हेल्पलाइन',
+      portals: 'पोर्टल',
     },
     helpline: {
       banner: 'राष्ट्रीय साइबर हेल्पलाइन: 1930 (24x7 सहायता)',
@@ -313,6 +315,7 @@ export const translations = {
       laws: 'कायदे आणि धोरणे',
       harassment: 'छळ हब',
       helplines: 'हेल्पलाइन',
+      portals: 'पोर्टल',
     },
     helpline: {
       banner: 'राष्ट्रीय सायबर हेल्पलाइन: 1930 (24x7 मदत)',

@@ -14,6 +14,7 @@ import GuidelinesPage from '@/pages/GuidelinesPage';
 import FormGuidePage from '@/pages/FormGuidePage';
 import VideosPage from '@/pages/VideosPage';
 import StoriesPage from '@/pages/StoriesPage';
+import PortalsPage from '@/pages/PortalsPage';
 import type { PageId } from '@/types';
 
 function App() {
@@ -43,6 +44,8 @@ function App() {
         return <VideosPage />;
       case 'stories':
         return <StoriesPage />;
+      case 'portals':
+        return <PortalsPage />;
       default:
         return <HomePage onNavigate={handleNavigate} />;
     }

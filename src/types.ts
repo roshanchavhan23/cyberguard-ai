@@ -10,7 +10,8 @@ export type PageId =
   | 'guidelines'
   | 'formguide'
   | 'videos'
-  | 'stories';
+  | 'stories'
+  | 'portals';
 
 export type ThreatCategory =
   | 'cyberbullying'

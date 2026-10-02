@@ -19,6 +19,7 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
     { id: 'harassment', label: t.nav.harassment },
     { id: 'guider', label: t.nav.guider },
     { id: 'helplines', label: t.nav.helplines },
+    { id: 'portals', label: t.nav.portals },
     { id: 'laws', label: t.nav.laws },
   ];
 
