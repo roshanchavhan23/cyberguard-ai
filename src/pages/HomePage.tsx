@@ -1,19 +1,15 @@
 import {
   ScanLine,
   Bot,
-  FileText,
-  MessageSquare,
-  ClipboardList,
-  Video,
-  Users,
-  Shield,
+  ShieldAlert,
   Phone,
+  Scale,
   ArrowRight,
   Brain,
   Lock,
   Zap,
   Globe,
-  Scale,
+  Heart,
 } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 import AudioReadout from '@/components/AudioReadout';
@@ -32,66 +28,52 @@ export default function HomePage({ onNavigate }: HomePageProps) {
     {
       icon: ScanLine,
       title: t.nav.detector,
-      desc: 'AI-powered analysis of suspicious messages with instant risk assessment and evidence generation.',
+      desc: 'AI-powered analysis of suspicious messages with instant risk assessment across 11 harassment categories and evidence generation.',
       page: 'detector' as PageId,
       color: 'text-neon-cyan',
     },
     {
-      icon: FileText,
-      title: t.nav.guidelines,
-      desc: 'Official government PDFs, handbooks, and brochures for cyber safety awareness.',
-      page: 'guidelines' as PageId,
-      color: 'text-neon-blue',
+      icon: ShieldAlert,
+      title: t.nav.harassment,
+      desc: 'Comprehensive guide covering 9 types of online harassment — warning signs, immediate actions, legal provisions, and mental health support.',
+      page: 'harassment' as PageId,
+      color: 'text-neon-red',
     },
     {
-      icon: MessageSquare,
+      icon: Bot,
       title: t.nav.guider,
-      desc: '24/7 empathetic AI companion guiding victims through every step of recovery.',
+      desc: '24/7 empathetic AI companion guiding victims through every step of recovery from online harassment and cyber threats.',
       page: 'guider' as PageId,
       color: 'text-neon-green',
     },
     {
-      icon: ClipboardList,
-      title: t.nav.formguide,
-      desc: 'Visual step-by-step wizard for filing complaints on cybercrime.gov.in.',
-      page: 'formguide' as PageId,
+      icon: Phone,
+      title: t.nav.helplines,
+      desc: 'Official emergency helplines, mental health crisis lines, online reporting portals, and anonymous distress log — all in one place.',
+      page: 'helplines' as PageId,
       color: 'text-neon-amber',
-    },
-    {
-      icon: Video,
-      title: t.nav.videos,
-      desc: 'Verified awareness tutorials and expert cyber safety video guides.',
-      page: 'videos' as PageId,
-      color: 'text-neon-purple',
-    },
-    {
-      icon: Users,
-      title: t.nav.stories,
-      desc: 'Real stories from survivors who overcame cyber threats with the right help.',
-      page: 'stories' as PageId,
-      color: 'text-neon-red',
     },
     {
       icon: Scale,
       title: t.nav.laws,
-      desc: 'Government of India cyber laws, rules, policies, and regulations for digital safety.',
+      desc: 'Government of India cyber laws, rules, policies, and regulations for digital safety with full legal provisions and penalties.',
       page: 'laws' as PageId,
-      color: 'text-neon-cyan',
+      color: 'text-neon-purple',
     },
   ];
 
   const stats = [
     {
-      value: dbStats ? (dbStats.chatSessions > 0 ? `${dbStats.chatSessions.toLocaleString()}+` : '0') : '...',
-      label: t.home.statVictims,
-      icon: Users,
-    },
-    {
-      value: dbStats ? (dbStats.threatsDetected > 0 ? `${dbStats.threatsDetected.toLocaleString()}+` : '0') : '...',
+      value: dbStats ? (dbStats.totalScans > 0 ? `${dbStats.totalScans.toLocaleString()}+` : '0') : '...',
       label: t.home.statThreats,
       icon: ScanLine,
     },
-    { value: '9', label: t.home.statGuides, icon: FileText },
+    {
+      value: dbStats ? (dbStats.distressLogs > 0 ? `${dbStats.distressLogs.toLocaleString()}+` : '0') : '...',
+      label: 'Distress Logs',
+      icon: Heart,
+    },
+    { value: '9', label: 'Harassment Types', icon: ShieldAlert },
     { value: '3', label: t.home.statLanguages, icon: Globe },
   ];
 
@@ -137,11 +119,11 @@ export default function HomePage({ onNavigate }: HomePageProps) {
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </button>
             <button
-              onClick={() => onNavigate('guider')}
-              className="group flex items-center gap-2 px-7 py-3.5 rounded-xl bg-cyber-card border border-cyber-border text-cyber-text font-semibold transition-all duration-300 hover:border-neon-green/50 hover:text-neon-green hover:scale-105"
+              onClick={() => onNavigate('harassment')}
+              className="group flex items-center gap-2 px-7 py-3.5 rounded-xl bg-cyber-card border border-cyber-border text-cyber-text font-semibold transition-all duration-300 hover:border-neon-red/50 hover:text-neon-red hover:scale-105"
             >
-              <Bot className="w-5 h-5" />
-              <span>{t.home.guiderBtn}</span>
+              <ShieldAlert className="w-5 h-5" />
+              <span>Explore Safety Hub</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </button>
           </div>
@@ -149,7 +131,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
           {/* Shield Visual */}
           <div className="relative inline-block mb-4">
             <div className="relative">
-              <Shield
+              <ShieldAlert
                 className="w-24 h-24 text-neon-cyan mx-auto animate-float"
                 fill="rgba(34,211,238,0.08)"
                 strokeWidth={1}

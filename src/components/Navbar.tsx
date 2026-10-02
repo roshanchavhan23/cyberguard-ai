@@ -16,11 +16,9 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
   const navItems: { id: PageId; label: string }[] = [
     { id: 'home', label: t.nav.home },
     { id: 'detector', label: t.nav.detector },
-    { id: 'guidelines', label: t.nav.guidelines },
+    { id: 'harassment', label: t.nav.harassment },
     { id: 'guider', label: t.nav.guider },
-    { id: 'formguide', label: t.nav.formguide },
-    { id: 'videos', label: t.nav.videos },
-    { id: 'stories', label: t.nav.stories },
+    { id: 'helplines', label: t.nav.helplines },
     { id: 'laws', label: t.nav.laws },
   ];
 

@@ -1,17 +1,19 @@
 import { useState, useEffect } from 'react';
-import { getPlatformStats } from '@/lib/supabase';
+import { getDashboardStats } from '@/lib/supabase';
 
-interface PlatformStats {
+interface DashboardStats {
   totalScans: number;
   threatsDetected: number;
-  chatSessions: number;
+  distressLogs: number;
+  criticalCases: number;
+  totalReports: number;
 }
 
 export function usePlatformStats() {
-  const [stats, setStats] = useState<PlatformStats | null>(null);
+  const [stats, setStats] = useState<DashboardStats | null>(null);
 
   useEffect(() => {
-    getPlatformStats().then((data) => {
+    getDashboardStats().then((data) => {
       if (data) setStats(data);
     });
   }, []);

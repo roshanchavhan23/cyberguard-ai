@@ -16,7 +16,7 @@ import { useLanguage } from '@/context/LanguageContext';
 import AudioReadout from '@/components/AudioReadout';
 import { analyzeContent, sampleTexts } from '@/data/detector';
 import { guidelines } from '@/data/guidelines';
-import { saveScanReport } from '@/lib/supabase';
+import { saveScanHistory } from '@/lib/supabase';
 import type { DetectionResult, RiskLevel, ThreatCategory } from '@/types';
 
 export default function DetectorPage() {
@@ -29,12 +29,13 @@ export default function DetectorPage() {
   // Persist each completed analysis to the database
   useEffect(() => {
     if (!result) return;
-    saveScanReport({
+    saveScanHistory({
       inputText: text,
       riskLevel: result.risk,
       category: result.category,
       toxicityScore: result.toxicityScore,
       matchedKeywords: result.matchedKeywords,
+      harassmentTypes: result.harassmentTypes,
       language: lang,
     });
   // Only fire when result changes, not on every text/lang change

@@ -6,12 +6,14 @@ import Footer from '@/components/Footer';
 import ChatDrawer from '@/components/ChatDrawer';
 import HomePage from '@/pages/HomePage';
 import DetectorPage from '@/pages/DetectorPage';
-import GuidelinesPage from '@/pages/GuidelinesPage';
+import HarassmentHubPage from '@/pages/HarassmentHubPage';
 import GuiderPage from '@/pages/GuiderPage';
+import HelplinesPage from '@/pages/HelplinesPage';
+import LawsPage from '@/pages/LawsPage';
+import GuidelinesPage from '@/pages/GuidelinesPage';
 import FormGuidePage from '@/pages/FormGuidePage';
 import VideosPage from '@/pages/VideosPage';
 import StoriesPage from '@/pages/StoriesPage';
-import LawsPage from '@/pages/LawsPage';
 import type { PageId } from '@/types';
 
 function App() {
@@ -25,18 +27,22 @@ function App() {
         return <HomePage onNavigate={handleNavigate} />;
       case 'detector':
         return <DetectorPage />;
-      case 'guidelines':
-        return <GuidelinesPage />;
+      case 'harassment':
+        return <HarassmentHubPage />;
       case 'guider':
         return <GuiderPage />;
+      case 'helplines':
+        return <HelplinesPage />;
+      case 'laws':
+        return <LawsPage />;
+      case 'guidelines':
+        return <GuidelinesPage />;
       case 'formguide':
         return <FormGuidePage />;
       case 'videos':
         return <VideosPage />;
       case 'stories':
         return <StoriesPage />;
-      case 'laws':
-        return <LawsPage />;
       default:
         return <HomePage onNavigate={handleNavigate} />;
     }

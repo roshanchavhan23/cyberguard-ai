@@ -3,17 +3,26 @@ export type Language = 'en' | 'hi' | 'mr';
 export type PageId =
   | 'home'
   | 'detector'
-  | 'guidelines'
+  | 'harassment'
   | 'guider'
+  | 'helplines'
+  | 'laws'
+  | 'guidelines'
   | 'formguide'
   | 'videos'
-  | 'stories'
-  | 'laws';
+  | 'stories';
 
 export type ThreatCategory =
   | 'cyberbullying'
+  | 'doxxing'
+  | 'cyberstalking'
+  | 'morphing_deepfakes'
+  | 'non_consensual_images'
+  | 'trolling'
+  | 'hate_speech'
+  | 'sextortion'
+  | 'gaslighting'
   | 'financial_fraud'
-  | 'threat_blackmail'
   | 'identity_abuse'
   | 'safe';
 
@@ -24,6 +33,7 @@ export interface DetectionResult {
   category: ThreatCategory;
   toxicityScore: number;
   matchedKeywords: string[];
+  harassmentTypes: string[];
   guidelines: string[];
   summary: string;
 }
