@@ -17,6 +17,7 @@ export default function Footer({ onNavigate }: FooterProps) {
     { id: 'formguide', label: t.nav.formguide },
     { id: 'videos', label: t.nav.videos },
     { id: 'stories', label: t.nav.stories },
+    { id: 'laws', label: t.nav.laws },
   ];
 
   return (

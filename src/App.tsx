@@ -11,6 +11,7 @@ import GuiderPage from '@/pages/GuiderPage';
 import FormGuidePage from '@/pages/FormGuidePage';
 import VideosPage from '@/pages/VideosPage';
 import StoriesPage from '@/pages/StoriesPage';
+import LawsPage from '@/pages/LawsPage';
 import type { PageId } from '@/types';
 
 function App() {
@@ -34,6 +35,8 @@ function App() {
         return <VideosPage />;
       case 'stories':
         return <StoriesPage />;
+      case 'laws':
+        return <LawsPage />;
       default:
         return <HomePage onNavigate={handleNavigate} />;
     }

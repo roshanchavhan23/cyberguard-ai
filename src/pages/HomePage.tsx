@@ -13,6 +13,7 @@ import {
   Lock,
   Zap,
   Globe,
+  Scale,
 } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 import AudioReadout from '@/components/AudioReadout';
@@ -69,6 +70,13 @@ export default function HomePage({ onNavigate }: HomePageProps) {
       desc: 'Real stories from survivors who overcame cyber threats with the right help.',
       page: 'stories' as PageId,
       color: 'text-neon-red',
+    },
+    {
+      icon: Scale,
+      title: t.nav.laws,
+      desc: 'Government of India cyber laws, rules, policies, and regulations for digital safety.',
+      page: 'laws' as PageId,
+      color: 'text-neon-cyan',
     },
   ];
 

@@ -21,6 +21,7 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
     { id: 'formguide', label: t.nav.formguide },
     { id: 'videos', label: t.nav.videos },
     { id: 'stories', label: t.nav.stories },
+    { id: 'laws', label: t.nav.laws },
   ];
 
   const languages: { code: Language; label: string; flag: string }[] = [

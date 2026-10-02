@@ -7,7 +7,8 @@ export type PageId =
   | 'guider'
   | 'formguide'
   | 'videos'
-  | 'stories';
+  | 'stories'
+  | 'laws';
 
 export type ThreatCategory =
   | 'cyberbullying'
@@ -62,4 +63,19 @@ export interface ChatMessage {
   role: 'user' | 'bot';
   text: string;
   timestamp: number;
+}
+
+export type LawCategory = 'act' | 'rule' | 'policy' | 'guideline' | 'amendment';
+
+export interface CyberLaw {
+  id: number;
+  law_name: string;
+  category: LawCategory;
+  year: number | null;
+  ministry: string | null;
+  description: string;
+  key_provisions: string[];
+  penalties: string | null;
+  reporting_authority: string | null;
+  official_url: string | null;
 }
