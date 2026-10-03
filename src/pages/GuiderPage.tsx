@@ -23,7 +23,7 @@ export default function GuiderPage() {
     }
   }, [messages, typing]);
 
-  const quickPrompts = [t.guider.qp1, t.guider.qp2, t.guider.qp3, t.guider.qp4];
+  const quickPrompts = [t.guider.qp1, t.guider.qp2, t.guider.qp3, t.guider.qp4, t.guider.qp5, t.guider.qp6, t.guider.qp7, t.guider.qp8];
 
   return (
     <div className="animate-fade-in max-w-4xl mx-auto px-4 py-12">
@@ -66,8 +66,8 @@ export default function GuiderPage() {
             <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-neon-green border-2 border-cyber-surface"></span>
           </div>
           <div>
-            <h3 className="text-sm font-bold text-white">AI Guider Bot</h3>
-            <p className="text-xs text-neon-green">● Online — Empathetic & Confidential</p>
+            <h3 className="text-sm font-bold text-white">AI Cyber Safety &amp; Legal Expert</h3>
+            <p className="text-xs text-neon-green">● Online — Empathetic, Confidential &amp; Knowledgeable</p>
           </div>
         </div>
 
@@ -116,7 +116,7 @@ export default function GuiderPage() {
 
         {/* Quick Prompts */}
         <div className="px-5 py-2 border-t border-cyber-border">
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-2 max-h-20 overflow-y-auto">
             {quickPrompts.map((prompt, i) => (
               <button
                 key={i}
