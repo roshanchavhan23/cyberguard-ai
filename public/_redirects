@@ -1,0 +1,4 @@
+# SPA fallback — but don't intercept static asset files
+/assets/*  200
+/guidelines/*  200
+/*  /index.html  200

@@ -1,10 +1,14 @@
 import { useState } from 'react';
-import { FileText, Download, Eye, X, BookOpen } from 'lucide-react';
+import { FileText, Download, Eye, X, BookOpen, ExternalLink } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 import AudioReadout from '@/components/AudioReadout';
 import { guidelines } from '@/data/guidelines';
 import { trackResourceView } from '@/lib/supabase';
 import type { GuidelineDoc } from '@/types';
+
+function pdfUrl(fileName: string): string {
+  return `/guidelines/${fileName}`;
+}
 
 export default function GuidelinesPage() {
   const { t, lang } = useLanguage();
@@ -18,6 +22,11 @@ export default function GuidelinesPage() {
 
   const handleDownload = (doc: GuidelineDoc) => {
     trackResourceView({ resourceType: 'guideline_download', resourceId: doc.id, resourceTitle: doc.title, language: lang });
+    window.open(pdfUrl(doc.fileName), '_blank', 'noopener,noreferrer');
+  };
+
+  const handleOpenInNewTab = (doc: GuidelineDoc) => {
+    window.open(pdfUrl(doc.fileName), '_blank', 'noopener,noreferrer');
   };
 
   const categories = [
@@ -101,15 +110,13 @@ export default function GuidelinesPage() {
                   <Eye className="w-3.5 h-3.5" />
                   <span>{t.guidelines.preview}</span>
                 </button>
-                <a
-                  href={`/guidelines/${doc.fileName}`}
-                  download
+                <button
                   onClick={() => handleDownload(doc)}
                   className="flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium bg-neon-cyan/10 border border-neon-cyan/30 text-neon-cyan hover:bg-neon-cyan/20 transition-all"
                 >
                   <Download className="w-3.5 h-3.5" />
                   <span>PDF</span>
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -123,7 +130,7 @@ export default function GuidelinesPage() {
           onClick={() => setPreviewDoc(null)}
         >
           <div
-            className="relative w-full max-w-3xl max-h-[85vh] bg-cyber-card border border-cyber-border rounded-2xl overflow-hidden flex flex-col"
+            className="relative w-full max-w-4xl max-h-[90vh] bg-cyber-card border border-cyber-border rounded-2xl overflow-hidden flex flex-col"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Modal Header */}
@@ -146,24 +153,31 @@ export default function GuidelinesPage() {
             {/* Modal Body - PDF Embed */}
             <div className="flex-1 overflow-hidden bg-cyber-bg">
               <iframe
-                src={`/guidelines/${previewDoc.fileName}`}
-                className="w-full h-[60vh]"
+                src={pdfUrl(previewDoc.fileName)}
+                className="w-full h-[65vh]"
                 title={previewDoc.title}
               />
             </div>
 
             {/* Modal Footer */}
             <div className="flex items-center justify-between px-6 py-4 border-t border-cyber-border">
-              <p className="text-sm text-gray-400">{previewDoc.description}</p>
-              <a
-                href={`/guidelines/${previewDoc.fileName}`}
-                download
-                onClick={() => handleDownload(previewDoc)}
-                className="flex items-center gap-2 px-4 py-2 rounded-lg bg-neon-cyan/10 border border-neon-cyan/30 text-neon-cyan font-medium text-sm hover:bg-neon-cyan/20 transition-all"
-              >
-                <Download className="w-4 h-4" />
-                <span>{t.guidelines.download}</span>
-              </a>
+              <p className="text-sm text-gray-400 flex-1 mr-4">{previewDoc.description}</p>
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={() => handleOpenInNewTab(previewDoc)}
+                  className="flex items-center gap-2 px-4 py-2 rounded-lg bg-cyber-bg border border-cyber-border text-gray-300 font-medium text-sm hover:text-white hover:border-cyber-muted transition-all"
+                >
+                  <ExternalLink className="w-4 h-4" />
+                  <span>Open in New Tab</span>
+                </button>
+                <button
+                  onClick={() => handleDownload(previewDoc)}
+                  className="flex items-center gap-2 px-4 py-2 rounded-lg bg-neon-cyan/10 border border-neon-cyan/30 text-neon-cyan font-medium text-sm hover:bg-neon-cyan/20 transition-all"
+                >
+                  <Download className="w-4 h-4" />
+                  <span>{t.guidelines.download}</span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
