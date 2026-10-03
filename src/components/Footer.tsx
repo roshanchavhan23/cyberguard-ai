@@ -41,19 +41,12 @@ export default function Footer({ onNavigate }: FooterProps) {
               {t.footer.createdBy}
             </h3>
 
-            {/* Project Lead — featured card */}
-            <div className="inline-block px-8 py-4 rounded-xl bg-cyber-bg/60 border border-neon-cyan/30 animate-pulse-glow mb-6">
-              <p className="text-2xl font-bold text-white glow-text">Roshan Balu Chavhan</p>
-              <p className="text-sm font-semibold text-neon-cyan mt-1 tracking-wide">(2AI-47)</p>
-              <p className="text-xs text-gray-400 mt-1.5">Project Lead · AI Content Detector &amp; Full-Stack Development</p>
-            </div>
-
             {/* Team Members with roles */}
             <div className="grid sm:grid-cols-2 gap-3 text-left mb-6">
               {teamMembers.map((m) => (
                 <div key={m.id} className="p-3.5 rounded-lg bg-cyber-bg/40 border border-cyber-border hover:border-neon-cyan/20 transition-all">
                   <div className="flex items-baseline gap-2">
-                    <p className="text-sm font-bold text-white">{m.name}</p>
+                    <p className="text-sm font-medium text-gray-200">{m.name}</p>
                     <span className="text-xs text-gray-500">{m.id}</span>
                   </div>
                   <p className="text-xs text-gray-400 mt-0.5">{m.role}</p>
