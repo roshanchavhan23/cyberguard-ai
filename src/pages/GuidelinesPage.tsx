@@ -7,7 +7,26 @@ import { trackResourceView } from '@/lib/supabase';
 import type { GuidelineDoc } from '@/types';
 
 function pdfUrl(fileName: string): string {
-  return `/guidelines/${fileName}`;
+  return `${import.meta.env.BASE_URL}guidelines/${fileName}`;
+}
+
+async function downloadPdf(doc: GuidelineDoc) {
+  const url = pdfUrl(doc.fileName);
+  try {
+    const res = await fetch(url);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const blob = await res.blob();
+    const objectUrl = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = objectUrl;
+    a.download = doc.fileName;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(objectUrl);
+  } catch {
+    window.open(url, '_blank', 'noopener,noreferrer');
+  }
 }
 
 export default function GuidelinesPage() {
@@ -22,7 +41,7 @@ export default function GuidelinesPage() {
 
   const handleDownload = (doc: GuidelineDoc) => {
     trackResourceView({ resourceType: 'guideline_download', resourceId: doc.id, resourceTitle: doc.title, language: lang });
-    window.open(pdfUrl(doc.fileName), '_blank', 'noopener,noreferrer');
+    downloadPdf(doc);
   };
 
   const handleOpenInNewTab = (doc: GuidelineDoc) => {
@@ -153,7 +172,7 @@ export default function GuidelinesPage() {
             {/* Modal Body - PDF Embed */}
             <div className="flex-1 overflow-hidden bg-cyber-bg">
               <iframe
-                src={pdfUrl(previewDoc.fileName)}
+                src={`${pdfUrl(previewDoc.fileName)}#toolbar=1&navpanes=0&view=FitH`}
                 className="w-full h-[65vh]"
                 title={previewDoc.title}
               />
